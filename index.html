@@ -495,19 +495,21 @@
         <h3>Tarjouspyyntö</h3>
         <p>Täytä tiedot, jos tiedät jo mitä palvelua tarvitset.</p>
 
-        <input type="text" placeholder="Nimi" required>
-        <input type="tel" placeholder="Puhelinnumero" required>
-        <input type="email" placeholder="Sähköposti" required>
+        <input type="text" name="nimi" placeholder="Nimi" required>
+<input type="tel" name="puhelin" placeholder="Puhelinnumero" required>
+<input type="email" name="email2" placeholder="Sähköposti" required>
 
-        <select required>
-          <option value="">Valitse palvelu</option>
-          <option>Kotisiivous</option>
-          <option>Toimistosiivous</option>
-          <option>Muuttosiivous</option>
-          <option>Ikkunanpesu</option>
-          <option>Juhla- / kertasiivous</option>
-          <option>Säännöllinen siivous</option>
-        </select>
+<select name="palvelu" required>
+  <option value="">Valitse palvelu</option>
+  <option>Kotisiivous</option>
+  <option>Toimistosiivous</option>
+  <option>Muuttosiivous</option>
+  <option>Ikkunanpesu</option>
+</select>
+
+<input type="text" name="sijainti" placeholder="Kohteen sijainti">
+
+<textarea name="lisatiedot" rows="5" placeholder="Lisätiedot"></textarea>
 
         <input type="text" placeholder="Kohteen sijainti, esim. Espoo">
         <textarea rows="5" placeholder="Kerro kohteen koko, toiveet ja lisätiedot"></textarea>
