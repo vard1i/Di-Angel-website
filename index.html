@@ -487,8 +487,9 @@
     </p>
 
     <div class="forms">
-      <form name="tarjous" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="tarjous">
+      <form name="tarjous" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/kiitos.html">
+  <input type="hidden" name="form-name" value="tarjous">
+  <input type="hidden" name="lomake" value="Tarjouspyyntö">
         <input type="hidden" name="lomake" value="Tarjouspyyntö">
 <p style="display:none;">
   <label>Älä täytä tätä: <input name="bot-field"></label>
@@ -516,8 +517,9 @@
         <button>Lähetä tarjouspyyntö</button>
       </form>
 
-      <form id="yhteydenotto" name="yhteydenotto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="yhteydenotto">
+      <form id="yhteydenotto" name="yhteydenotto" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/kiitos.html">
+  <input type="hidden" name="form-name" value="yhteydenotto">
+  <input type="hidden" name="lomake" value="Yhteydenottopyyntö">
         <input type="hidden" name="lomake" value="Yhteydenotto">
 <p style="display:none;">
   <label>Älä täytä tätä: <input name="bot-field"></label>
