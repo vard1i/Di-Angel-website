@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Di-Angel | Siivouspalvelut Helsinki, Espoo & Vantaa</title>
+  <meta name="description" content="Di-Angel tarjoaa kotisiivousta, toimistosiivousta, muuttosiivousta ja ikkunanpesua Helsingissä, Espoossa ja Vantaalla. Pyydä tarjous helposti." />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #020617;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(2, 6, 23, 0.75);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav img {
+      height: 55px;
+      border-radius: 12px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: 600;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    section {
+      padding: 110px 8%;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 60px;
+      background:
+        linear-gradient(to bottom, rgba(2,6,23,0.85), rgba(30,58,138,0.65), rgba(248,250,252,1)),
+        url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 90px);
+      line-height: 0.95;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: #e5e7eb;
+      margin-bottom: 34px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(18px);
+      border-radius: 38px;
+      padding: 35px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .hero-card img {
+      width: 100%;
+      border-radius: 28px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-18px); }
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 16px 26px;
+      border-radius: 18px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: #2563eb;
+      color: white;
+      box-shadow: 0 20px 45px rgba(37,99,235,0.35);
+    }
+
+    .secondary {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: white;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .dark {
+      background: linear-gradient(to bottom, #111827, #1e293b);
+    }
+
+    .light {
+      background: #f8fafc;
+      color: #020617;
+    }
+
+    .white {
+      background: white;
+      color: #020617;
+    }
+
+    h2 {
+      font-size: clamp(36px, 5vw, 58px);
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .section-text {
+      max-width: 720px;
+      margin: 0 auto 60px;
+      text-align: center;
+      color: #cbd5e1;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .light .section-text,
+    .white .section-text {
+      color: #475569;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 26px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+      transition: 0.45s;
+    }
+
+    .card:hover {
+      transform: translateY(-14px) rotateX(4deg);
+    }
+
+    .card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      transition: 1.5s;
+    }
+
+    .card:hover img {
+      transform: scale(1.14);
+    }
+
+    .card-content {
+      padding: 25px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    .price-card {
+      background: white;
+      color: #020617;
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: 0 25px 60px rgba(15,23,42,0.12);
+      transition: 0.35s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .price {
+      font-size: 38px;
+      font-weight: 900;
+      color: #2563eb;
+      margin-bottom: 12px;
+    }
+
+    .reviews {
+      background:
+        linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.88)),
+        url("https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    .review {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(14px);
+      padding: 30px;
+      border-radius: 30px;
+      line-height: 1.7;
+    }
+
+    .forms {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    form {
+      background: white;
+      color: #020617;
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: 0 30px 80px rgba(15,23,42,0.12);
+    }
+
+    form h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    form p {
+      color: #64748b;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 16px;
+      border: 1px solid #dbeafe;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #2563eb;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 18px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      padding: 45px 8%;
+      background: #020617;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    footer img {
+      height: 65px;
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 6px;
+        font-size: 13px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 150px;
+      }
+
+      .forms {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <img src="logo.png" alt="Di-Angel logo">
+    <div>
+      <a href="#etusivu">Etusivu</a>
+      <a href="#palvelut">Palvelut</a>
+      <a href="#hinnasto">Hinnasto</a>
+      <a href="#arvostelut">Arvostelut</a>
+      <a href="#tarjous">Pyydä tarjous</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="etusivu">
+    <div>
+      <h1>Moderni <span>siivouspalvelu</span></h1>
+      <p>
+        Di-Angel tarjoaa kotisiivousta, toimistosiivousta, muuttosiivousta ja ikkunanpesua Helsingissä, Espoossa ja Vantaalla.
+        Puhdas lopputulos, luotettava palvelu ja ammattimainen vaikutelma.
+      </p>
+      <div class="btns">
+        <a class="btn primary" href="#tarjous">Pyydä tarjous</a>
+        <a class="btn secondary" href="#yhteydenotto">Jätä yhteydenottopyyntö</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <img src="logo.png" alt="Di-Angel logo">
+    </div>
+  </section>
+
+  <section class="dark" id="palvelut">
+    <h2>Palvelut</h2>
+    <p class="section-text">
+      Siivouspalvelut yksittäisiin tarpeisiin sekä säännöllisiin asiakkuuksiin.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80" alt="Kotisiivous">
+        <div class="card-content">
+          <h3>Kotisiivous</h3>
+          <p>Raikas ja puhdas koti ilman arjen stressiä. Sopii kertasiivoukseen tai säännölliseen ylläpitoon.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Toimistosiivous">
+        <div class="card-content">
+          <h3>Toimistosiivous</h3>
+          <p>Siistit työtilat antavat ammattimaisen vaikutelman ja lisäävät työviihtyvyyttä.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Muuttosiivous">
+        <div class="card-content">
+          <h3>Muuttosiivous</h3>
+          <p>Huolellinen loppusiivous muuton yhteydessä asuntoihin ja liiketiloihin.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=80" alt="Ikkunanpesu">
+        <div class="card-content">
+          <h3>Ikkunanpesu</h3>
+          <p>Kirkkaat ikkunat koteihin, toimistoihin ja muihin kohteisiin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light" id="hinnasto">
+    <h2>Hinnasto</h2>
+    <p class="section-text">
+      Lopullinen hinta määräytyy kohteen koon, sijainnin ja työn laajuuden perusteella.
+    </p>
+
+    <div class="grid">
+      <div class="price-card">
+        <div class="price">37 €/h</div>
+        <h3>Kotisiivous</h3>
+        <p>Alkaen-hinta. Säännöllisiin siivouksiin voidaan sopia erillinen hinta.</p>
+      </div>
+
+      <div class="price-card">
+        <div class="price">249 €+</div>
+        <h3>Muuttosiivous</h3>
+        <p>Hinta riippuu asunnon koosta ja siivouksen vaativuudesta.</p>
+      </div>
+
+      <div class="price-card">
+        <div class="price">89 €+</div>
+        <h3>Ikkunanpesu</h3>
+        <p>Kohteen koon ja ikkunoiden määrän mukaan.</p>
+      </div>
+
+      <div class="price-card">
+        <div class="price">Tarjous</div>
+        <h3>Toimistosiivous</h3>
+        <p>Yrityksille sopimuksen mukaan. Sopii jatkuviin asiakkuuksiin.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="arvostelut">
+    <h2>Asiakasarvostelut</h2>
+    <p class="section-text">
+      Lisää tähän myöhemmin oikeat asiakasarvostelut, kun ensimmäiset asiakkaat tulevat.
+    </p>
+
+    <div class="grid">
+      <div class="review">
+        “Todella siisti lopputulos ja helppo yhteydenpito. Tilaan varmasti uudelleen.”
+        <br><br><strong>— Kotisiivousasiakas</strong>
+      </div>
+
+      <div class="review">
+        “Toimisto näyttää paljon ammattimaisemmalta. Palvelu oli nopeaa ja selkeää.”
+        <br><br><strong>— Yritysasiakas</strong>
+      </div>
+
+      <div class="review">
+        “Muuttosiivous hoidettiin huolellisesti ja sovitussa aikataulussa.”
+        <br><br><strong>— Muuttosiivousasiakas</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="white" id="tarjous">
+    <h2>Pyydä tarjous</h2>
+    <p class="section-text">
+      Voit pyytää tarkan tarjouksen tai jättää kevyemmän yhteydenottopyynnön.
+    </p>
+
+    <div class="forms">
+      <form onsubmit="event.preventDefault(); alert('Tarjouspyyntö tallennettu. Yhdistetään myöhemmin sähköpostiin.');">
+        <h3>Tarjouspyyntö</h3>
+        <p>Täytä tiedot, jos tiedät jo mitä palvelua tarvitset.</p>
+
+        <input type="text" placeholder="Nimi" required>
+        <input type="tel" placeholder="Puhelinnumero" required>
+        <input type="email" placeholder="Sähköposti" required>
+
+        <select required>
+          <option value="">Valitse palvelu</option>
+          <option>Kotisiivous</option>
+          <option>Toimistosiivous</option>
+          <option>Muuttosiivous</option>
+          <option>Ikkunanpesu</option>
+          <option>Juhla- / kertasiivous</option>
+          <option>Säännöllinen siivous</option>
+        </select>
+
+        <input type="text" placeholder="Kohteen sijainti, esim. Espoo">
+        <textarea rows="5" placeholder="Kerro kohteen koko, toiveet ja lisätiedot"></textarea>
+
+        <button>Lähetä tarjouspyyntö</button>
+      </form>
+
+      <form id="yhteydenotto" onsubmit="event.preventDefault(); alert('Yhteydenottopyyntö tallennettu. Yhdistetään myöhemmin sähköpostiin.');">
+        <h3>Jätä yhteydenottopyyntö</h3>
+        <p>Et ole varma mitä tarvitset? Jätä pyyntö, niin otamme yhteyttä.</p>
+
+        <input type="text" placeholder="Nimi" required>
+        <input type="tel" placeholder="Puhelinnumero" required>
+        <input type="email" placeholder="Sähköposti">
+
+        <select>
+          <option>Milloin sinulle voi soittaa?</option>
+          <option>Aamulla</option>
+          <option>Päivällä</option>
+          <option>Iltapäivällä</option>
+          <option>Illalla</option>
+        </select>
+
+        <textarea rows="6" placeholder="Kerro lyhyesti asiasi, esim. tarvitsen säännöllisen kotisiivouksen Espoossa."></textarea>
+
+        <button>Jätä yhteydenottopyyntö</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <img src="logo.png" alt="Di-Angel logo">
+      <p><strong>Di-Angel</strong></p>
+      <p>Siivouspalvelut Helsinki • Espoo • Vantaa</p>
+    </div>
+
+    <div>
+      <p><strong>Palvelut</strong></p>
+      <p>Kotisiivous</p>
+      <p>Toimistosiivous</p>
+      <p>Muuttosiivous</p>
+      <p>Ikkunanpesu</p>
+    </div>
+
+    <div>
+      <p><strong>Yhteystiedot</strong></p>
+      <p>Lisää puhelin ja sähköposti tähän</p>
+      <p>Instagram ja Facebook myöhemmin</p>
+    </div>
+  </footer>
+
+</body>
+</html>
