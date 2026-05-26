@@ -525,11 +525,11 @@
         <h3>Jätä yhteydenottopyyntö</h3>
         <p>Et ole varma mitä tarvitset? Jätä pyyntö, niin otamme yhteyttä.</p>
 
-        <input type="text" placeholder="Nimi" required>
-        <input type="tel" placeholder="Puhelinnumero" required>
-        <input type="email" placeholder="Sähköposti">
+        <input type="text" name="nimi" placeholder="Nimi" required>
+<input type="tel" name="puhelin" placeholder="Puhelinnumero" required>
+<input type="email" name="email" placeholder="Sähköposti" required>
 
-        <select>
+        <select name="soittoaika">
           <option>Milloin sinulle voi soittaa?</option>
           <option>Aamulla</option>
           <option>Päivällä</option>
@@ -537,7 +537,7 @@
           <option>Illalla</option>
         </select>
 
-        <textarea rows="6" placeholder="Kerro lyhyesti asiasi, esim. tarvitsen säännöllisen kotisiivouksen Espoossa."></textarea>
+        <textarea name="viesti" rows="6" placeholder="kerro lyhyesti ajastasi"></textarea>
 
         <button>Jätä yhteydenottopyyntö</button>
       </form>
