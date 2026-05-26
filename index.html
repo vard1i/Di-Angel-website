@@ -487,7 +487,11 @@
     </p>
 
     <div class="forms">
-      <form onsubmit="event.preventDefault(); alert('Tarjouspyyntö tallennettu. Yhdistetään myöhemmin sähköpostiin.');">
+      <form name="tarjous" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="tarjous">
+<p style="display:none;">
+  <label>Älä täytä tätä: <input name="bot-field"></label>
+</p>
         <h3>Tarjouspyyntö</h3>
         <p>Täytä tiedot, jos tiedät jo mitä palvelua tarvitset.</p>
 
@@ -511,7 +515,11 @@
         <button>Lähetä tarjouspyyntö</button>
       </form>
 
-      <form id="yhteydenotto" onsubmit="event.preventDefault(); alert('Yhteydenottopyyntö tallennettu. Yhdistetään myöhemmin sähköpostiin.');">
+      <form id="yhteydenotto" name="yhteydenotto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="yhteydenotto">
+<p style="display:none;">
+  <label>Älä täytä tätä: <input name="bot-field"></label>
+</p>
         <h3>Jätä yhteydenottopyyntö</h3>
         <p>Et ole varma mitä tarvitset? Jätä pyyntö, niin otamme yhteyttä.</p>
 
